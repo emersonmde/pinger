@@ -130,7 +130,7 @@ def traceroute(dest, count = 3, timeout = 1, hops = 64):
     hop = ''
     print('traceroute to %s (%s), %d hops max' % (dest, dest_addr, hops))
     # Increment the IP TTL (starting at 1) to systematically receive Time Exceeded responses from each hop
-    for i in range(hops):
+    for i in range(1, hops):
         try:
             # Set IP TTL
             icmp_socket.setsockopt(socket.SOL_IP, socket.IP_TTL, i)
